@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" width="100%" role="img" aria-label="圖 2：各發文時段的平均互動數（Asia/Taipei）" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<rect width="760" height="300" fill="#ffffff"/>
+<text x="20" y="32" font-size="17" font-weight="600" fill="#1f2933">圖 2：各發文時段的平均互動數（Asia/Taipei）</text>
+<line x1="52" y1="254.0" x2="736" y2="254.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="44" y="258.0" font-size="11" text-anchor="end" fill="#6b7280">0</text>
+<line x1="52" y1="204.0" x2="736" y2="204.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="44" y="208.0" font-size="11" text-anchor="end" fill="#6b7280">126</text>
+<line x1="52" y1="154.0" x2="736" y2="154.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="44" y="158.0" font-size="11" text-anchor="end" fill="#6b7280">252</text>
+<line x1="52" y1="104.0" x2="736" y2="104.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="44" y="108.0" font-size="11" text-anchor="end" fill="#6b7280">378</text>
+<line x1="52" y1="54.0" x2="736" y2="54.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="44" y="58.0" font-size="11" text-anchor="end" fill="#6b7280">504</text>
+<rect x="89.0" y="224.1" width="40.0" height="29.9" rx="3" fill="#2563eb"/>
+<text x="109.0" y="270" font-size="11" text-anchor="middle" fill="#6b7280">00</text>
+<rect x="203.0" y="247.4" width="40.0" height="6.6" rx="3" fill="#2563eb"/>
+<text x="223.0" y="270" font-size="11" text-anchor="middle" fill="#6b7280">04</text>
+<rect x="317.0" y="204.8" width="40.0" height="49.2" rx="3" fill="#2563eb"/>
+<text x="337.0" y="270" font-size="11" text-anchor="middle" fill="#6b7280">08</text>
+<rect x="431.0" y="130.5" width="40.0" height="123.5" rx="3" fill="#2563eb"/>
+<text x="451.0" y="270" font-size="11" text-anchor="middle" fill="#6b7280">12</text>
+<rect x="545.0" y="248.8" width="40.0" height="5.2" rx="3" fill="#2563eb"/>
+<text x="565.0" y="270" font-size="11" text-anchor="middle" fill="#6b7280">16</text>
+<rect x="659.0" y="54.0" width="40.0" height="200.0" rx="3" fill="#2563eb"/>
+<text x="679.0" y="270" font-size="11" text-anchor="middle" fill="#6b7280">20</text>
+<text x="20" y="290" font-size="11.5" fill="#6b7280">x = 發文小時，y = 平均總互動</text>
+</svg>

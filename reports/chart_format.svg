@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 282" width="100%" role="img" aria-label="圖 4：各文型平均互動" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<rect width="760" height="282" fill="#ffffff"/>
+<text x="20" y="32" font-size="17" font-weight="600" fill="#1f2933">圖 4：各文型平均互動</text>
+<text x="178" y="70" font-size="13" text-anchor="end" fill="#1f2933">二選一互動提問</text>
+<rect x="190" y="57" width="460.0" height="19" rx="4" fill="#2563eb"/>
+<text x="658.0" y="71" font-size="12.5" fill="#6b7280">624</text>
+<text x="178" y="104" font-size="13" text-anchor="end" fill="#1f2933">故事敘事</text>
+<rect x="190" y="91" width="130.8" height="19" rx="4" fill="#7c3aed"/>
+<text x="328.8" y="105" font-size="12.5" fill="#6b7280">177.5</text>
+<text x="178" y="138" font-size="13" text-anchor="end" fill="#1f2933">自我揭露</text>
+<rect x="190" y="125" width="121.6" height="19" rx="4" fill="#0891b2"/>
+<text x="319.6" y="139" font-size="12.5" fill="#6b7280">165</text>
+<text x="178" y="172" font-size="13" text-anchor="end" fill="#1f2933">金句/引用</text>
+<rect x="190" y="159" width="58.6" height="19" rx="4" fill="#059669"/>
+<text x="256.6" y="173" font-size="12.5" fill="#6b7280">79.5</text>
+<text x="178" y="206" font-size="13" text-anchor="end" fill="#1f2933">故事敘述＋互動提問</text>
+<rect x="190" y="193" width="15.5" height="19" rx="4" fill="#d97706"/>
+<text x="213.5" y="207" font-size="12.5" fill="#6b7280">21</text>
+<text x="178" y="240" font-size="13" text-anchor="end" fill="#1f2933">立場短文</text>
+<rect x="190" y="227" width="3.7" height="19" rx="4" fill="#dc2626"/>
+<text x="201.7" y="241" font-size="12.5" fill="#6b7280">5</text>
+</svg>

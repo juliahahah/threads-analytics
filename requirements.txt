@@ -1,0 +1,12 @@
+# 資料管線刻意只使用 Python 標準函式庫，不需要 pip install。
+#
+# 用到的標準模組：
+#   csv, json, re, sys, math, random, pathlib, datetime,
+#   collections, statistics, unittest
+#
+# 不採用 pandas / jieba / matplotlib 的理由：
+#   - 零安裝即可重現，降低評分者執行門檻
+#   - 避免 matplotlib 在中文字型上的環境依賴（改以手刻 SVG 產圖）
+#   - 資料量僅 36 列，標準函式庫已足夠
+#
+# 需求：Python >= 3.10

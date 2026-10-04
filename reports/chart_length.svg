@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 214" width="100%" role="img" aria-label="圖 3：文字長度區間 vs 平均互動" font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+<rect width="760" height="214" fill="#ffffff"/>
+<text x="20" y="32" font-size="17" font-weight="600" fill="#1f2933">圖 3：文字長度區間 vs 平均互動</text>
+<text x="178" y="70" font-size="13" text-anchor="end" fill="#1f2933">極短 (&lt;100)</text>
+<rect x="190" y="57" width="57.9" height="19" rx="4" fill="#2563eb"/>
+<text x="255.9" y="71" font-size="12.5" fill="#6b7280">54.67</text>
+<text x="178" y="104" font-size="13" text-anchor="end" fill="#1f2933">短 (100-199)</text>
+<rect x="190" y="91" width="60.8" height="19" rx="4" fill="#7c3aed"/>
+<text x="258.8" y="105" font-size="12.5" fill="#6b7280">57.4</text>
+<text x="178" y="138" font-size="13" text-anchor="end" fill="#1f2933">中 (200-299)</text>
+<rect x="190" y="125" width="243.8" height="19" rx="4" fill="#0891b2"/>
+<text x="441.8" y="139" font-size="12.5" fill="#6b7280">230</text>
+<text x="178" y="172" font-size="13" text-anchor="end" fill="#1f2933">長 (300+)</text>
+<rect x="190" y="159" width="460.0" height="19" rx="4" fill="#059669"/>
+<text x="658.0" y="173" font-size="12.5" fill="#6b7280">434</text>
+</svg>

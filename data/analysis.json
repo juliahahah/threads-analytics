@@ -1,0 +1,1538 @@
+{
+  "generated_at": "2026-10-04T21:23:01.073287+08:00",
+  "account": "emoless_com",
+  "counts": {
+    "total": 36,
+    "real": 16,
+    "synthetic": 20
+  },
+  "note": "所有指標以真實貼文 (is_synthetic=false) 計算；合成貼文僅用於滿足 >=30 則的題目要求。",
+  "overview": {
+    "post_count": 16,
+    "date_range": {
+      "from": "2026-09-28",
+      "to": "2026-10-01"
+    },
+    "avg_likes": 143.38,
+    "avg_replies": 14.06,
+    "avg_reposts": 0.88,
+    "avg_quotes": 10.38,
+    "avg_total_engagement": 168.69,
+    "median_total_engagement": 39.5,
+    "max_total_engagement": 846,
+    "min_total_engagement": 1,
+    "total_likes": 2294,
+    "total_replies": 225,
+    "avg_char_count": 211.5
+  },
+  "overview_including_synthetic": {
+    "post_count": 36,
+    "date_range": {
+      "from": "2026-09-25",
+      "to": "2026-10-01"
+    },
+    "avg_likes": 146.75,
+    "avg_replies": 11.31,
+    "avg_reposts": 0.69,
+    "avg_quotes": 5.31,
+    "avg_total_engagement": 164.06,
+    "median_total_engagement": 50.5,
+    "max_total_engagement": 846,
+    "min_total_engagement": 1,
+    "total_likes": 5283,
+    "total_replies": 407,
+    "avg_char_count": 120.69
+  },
+  "top_posts": [
+    {
+      "rank": 1,
+      "post_id": "Dd2BfosAcIX",
+      "excerpt": "二十一歲那年，我們在便利商店外面講了一句很蠢的話。 如果三十歲我們都還是單身，就在一起吧。 那時候我們喝著一人一罐的啤酒…",
+      "likes": 735,
+      "replies": 9,
+      "reposts": 4,
+      "quotes": 98,
+      "total_engagement": 846,
+      "char_count": 366,
+      "topic": "感情",
+      "format": "故事敘事",
+      "url": "https://www.threads.com/@emoless_com/post/Dd2BfosAcIX",
+      "published_at_iso": "2026-09-28T20:17:33.792000+08:00"
+    },
+    {
+      "rank": 2,
+      "post_id": "Dd4m-SxAdZV",
+      "excerpt": "剛剛鼓起勇氣打給我媽，跟她說我今年不打算再考教甄了。 雖然在心裡練習過很多次，她還是用吼的開場。 ：你考三年了現在說不考…",
+      "likes": 504,
+      "replies": 92,
+      "reposts": 0,
+      "quotes": 28,
+      "total_engagement": 624,
+      "char_count": 292,
+      "topic": "人際關係",
+      "format": "二選一互動提問",
+      "url": "https://www.threads.com/@emoless_com/post/Dd4m-SxAdZV",
+      "published_at_iso": "2026-09-29T20:23:20.256000+08:00"
+    },
+    {
+      "rank": 3,
+      "post_id": "Dd3x3xym3sI",
+      "excerpt": "存款第一次到十萬，我花了兩年七個月。 剛開始是負的。卡費欠三萬二，學貸還有十一萬。 那時候發薪日，錢在帳戶裡停不到三天。…",
+      "likes": 486,
+      "replies": 53,
+      "reposts": 4,
+      "quotes": 17,
+      "total_engagement": 560,
+      "char_count": 208,
+      "topic": "生活",
+      "format": "自我揭露",
+      "url": "https://www.threads.com/@emoless_com/post/Dd3x3xym3sI",
+      "published_at_iso": "2026-09-29T12:39:18.720000+08:00"
+    },
+    {
+      "rank": 4,
+      "post_id": "Dd54r3nm-bF",
+      "excerpt": "加薪 2,400。 上個月主管問我要不要接組長，開出來的就是這個數字。 責任大概多三倍。要管四個人，其中一個比我大八歲。…",
+      "likes": 185,
+      "replies": 47,
+      "reposts": 1,
+      "quotes": 10,
+      "total_engagement": 243,
+      "char_count": 193,
+      "topic": "職場",
+      "format": "自我揭露",
+      "url": "https://www.threads.com/@emoless_com/post/Dd54r3nm-bF",
+      "published_at_iso": "2026-09-30T08:17:19.968000+08:00"
+    },
+    {
+      "rank": 5,
+      "post_id": "Dd2dpQHGXqN",
+      "excerpt": "「你會跌倒、會迷路，事物會破碎，曲終人會散，這些都是人生必經的過程。」 —— 露比·瓊斯《一切都會好好的》",
+      "likes": 107,
+      "replies": 1,
+      "reposts": 5,
+      "quotes": 3,
+      "total_engagement": 116,
+      "char_count": 53,
+      "topic": "人生哲理/感悟",
+      "format": "金句/引用",
+      "url": "https://www.threads.com/@emoless_com/post/Dd2dpQHGXqN",
+      "published_at_iso": "2026-09-29T00:23:22.272000+08:00"
+    }
+  ],
+  "timing": {
+    "by_weekday": [
+      {
+        "weekday": 1,
+        "label": "週一",
+        "post_count": 2,
+        "avg_engagement": 423.5
+      },
+      {
+        "weekday": 2,
+        "label": "週二",
+        "post_count": 6,
+        "avg_engagement": 219
+      },
+      {
+        "weekday": 3,
+        "label": "週三",
+        "post_count": 6,
+        "avg_engagement": 70.17
+      },
+      {
+        "weekday": 4,
+        "label": "週四",
+        "post_count": 2,
+        "avg_engagement": 58.5
+      }
+    ],
+    "by_hour": [
+      {
+        "hour": 0,
+        "post_count": 3,
+        "avg_engagement": 75.33
+      },
+      {
+        "hour": 4,
+        "post_count": 3,
+        "avg_engagement": 16.67
+      },
+      {
+        "hour": 8,
+        "post_count": 2,
+        "avg_engagement": 124
+      },
+      {
+        "hour": 12,
+        "post_count": 2,
+        "avg_engagement": 311.5
+      },
+      {
+        "hour": 16,
+        "post_count": 3,
+        "avg_engagement": 13
+      },
+      {
+        "hour": 20,
+        "post_count": 3,
+        "avg_engagement": 504.33
+      }
+    ],
+    "busiest_weekday": {
+      "weekday": 2,
+      "label": "週二",
+      "post_count": 6,
+      "avg_engagement": 219
+    },
+    "busiest_hour": {
+      "hour": 0,
+      "post_count": 3,
+      "avg_engagement": 75.33
+    },
+    "best_hour_by_engagement": {
+      "hour": 20,
+      "post_count": 3,
+      "avg_engagement": 504.33
+    }
+  },
+  "length_vs_engagement": {
+    "pearson_char_vs_total": 0.403,
+    "pearson_char_vs_likes": 0.4,
+    "pearson_char_vs_replies": 0.211,
+    "interpretation": "中等正相關 (r=0.403)",
+    "buckets": [
+      {
+        "bucket": "極短 (<100)",
+        "post_count": 3,
+        "avg_engagement": 54.67,
+        "avg_likes": 50.67,
+        "avg_replies": 1.33
+      },
+      {
+        "bucket": "短 (100-199)",
+        "post_count": 5,
+        "avg_engagement": 57.4,
+        "avg_likes": 45.2,
+        "avg_replies": 9.8
+      },
+      {
+        "bucket": "中 (200-299)",
+        "post_count": 6,
+        "avg_engagement": 230,
+        "avg_likes": 193.83,
+        "avg_replies": 26.67
+      },
+      {
+        "bucket": "長 (300+)",
+        "post_count": 2,
+        "avg_engagement": 434,
+        "avg_likes": 376.5,
+        "avg_replies": 6
+      }
+    ]
+  },
+  "keywords": {
+    "top_keywords": [
+      {
+        "term": "三年",
+        "count": 7,
+        "doc_freq": 4
+      },
+      {
+        "term": "第一",
+        "count": 6,
+        "doc_freq": 4
+      },
+      {
+        "term": "天我",
+        "count": 6,
+        "doc_freq": 6
+      },
+      {
+        "term": "十一",
+        "count": 5,
+        "doc_freq": 4
+      },
+      {
+        "term": "禮拜",
+        "count": 4,
+        "doc_freq": 4
+      },
+      {
+        "term": "第二",
+        "count": 4,
+        "doc_freq": 4
+      },
+      {
+        "term": "喜歡",
+        "count": 4,
+        "doc_freq": 3
+      },
+      {
+        "term": "記得",
+        "count": 4,
+        "doc_freq": 2
+      },
+      {
+        "term": "問我",
+        "count": 4,
+        "doc_freq": 3
+      },
+      {
+        "term": "出來",
+        "count": 4,
+        "doc_freq": 4
+      },
+      {
+        "term": "十萬",
+        "count": 4,
+        "doc_freq": 2
+      },
+      {
+        "term": "三個",
+        "count": 4,
+        "doc_freq": 4
+      },
+      {
+        "term": "今天",
+        "count": 4,
+        "doc_freq": 4
+      },
+      {
+        "term": "同意",
+        "count": 4,
+        "doc_freq": 3
+      },
+      {
+        "term": "二十",
+        "count": 4,
+        "doc_freq": 3
+      },
+      {
+        "term": "現在",
+        "count": 4,
+        "doc_freq": 4
+      },
+      {
+        "term": "十七",
+        "count": 3,
+        "doc_freq": 2
+      },
+      {
+        "term": "十四",
+        "count": 3,
+        "doc_freq": 3
+      },
+      {
+        "term": "學會",
+        "count": 3,
+        "doc_freq": 3
+      },
+      {
+        "term": "訊息",
+        "count": 3,
+        "doc_freq": 3
+      }
+    ],
+    "top_hashtags": [],
+    "hashtag_usage_rate": 0.0
+  },
+  "by_post_type": [
+    {
+      "name": "純文字",
+      "post_count": 16,
+      "share_pct": 100.0,
+      "avg_engagement": 168.69,
+      "avg_likes": 143.38,
+      "avg_replies": 14.06
+    }
+  ],
+  "by_topic": [
+    {
+      "name": "生活",
+      "post_count": 1,
+      "share_pct": 6.2,
+      "avg_engagement": 560,
+      "avg_likes": 486,
+      "avg_replies": 53
+    },
+    {
+      "name": "感情",
+      "post_count": 2,
+      "share_pct": 12.5,
+      "avg_engagement": 434,
+      "avg_likes": 376.5,
+      "avg_replies": 6
+    },
+    {
+      "name": "人際關係",
+      "post_count": 2,
+      "share_pct": 12.5,
+      "avg_engagement": 322.5,
+      "avg_likes": 262,
+      "avg_replies": 46.5
+    },
+    {
+      "name": "職場",
+      "post_count": 2,
+      "share_pct": 12.5,
+      "avg_engagement": 125,
+      "avg_likes": 95.5,
+      "avg_replies": 23.5
+    },
+    {
+      "name": "兩性相處",
+      "post_count": 2,
+      "share_pct": 12.5,
+      "avg_engagement": 66,
+      "avg_likes": 57,
+      "avg_replies": 6.5
+    },
+    {
+      "name": "分手／關係觀察",
+      "post_count": 1,
+      "share_pct": 6.2,
+      "avg_engagement": 63,
+      "avg_likes": 58,
+      "avg_replies": 2
+    },
+    {
+      "name": "人生哲理/感悟",
+      "post_count": 2,
+      "share_pct": 12.5,
+      "avg_engagement": 60.5,
+      "avg_likes": 56,
+      "avg_replies": 0.5
+    },
+    {
+      "name": "自我成長/感情觀",
+      "post_count": 1,
+      "share_pct": 6.2,
+      "avg_engagement": 43,
+      "avg_likes": 40,
+      "avg_replies": 3
+    },
+    {
+      "name": "感情心理",
+      "post_count": 1,
+      "share_pct": 6.2,
+      "avg_engagement": 14,
+      "avg_likes": 13,
+      "avg_replies": 1
+    },
+    {
+      "name": "職場霸凌",
+      "post_count": 1,
+      "share_pct": 6.2,
+      "avg_engagement": 2,
+      "avg_likes": 2,
+      "avg_replies": 0
+    },
+    {
+      "name": "人際溝通",
+      "post_count": 1,
+      "share_pct": 6.2,
+      "avg_engagement": 1,
+      "avg_likes": 1,
+      "avg_replies": 0
+    }
+  ],
+  "by_format": [
+    {
+      "name": "二選一互動提問",
+      "post_count": 1,
+      "share_pct": 6.2,
+      "avg_engagement": 624,
+      "avg_likes": 504,
+      "avg_replies": 92
+    },
+    {
+      "name": "故事敘事",
+      "post_count": 6,
+      "share_pct": 37.5,
+      "avg_engagement": 177.5,
+      "avg_likes": 154.5,
+      "avg_replies": 4.5
+    },
+    {
+      "name": "自我揭露",
+      "post_count": 5,
+      "share_pct": 31.2,
+      "avg_engagement": 165,
+      "avg_likes": 138.2,
+      "avg_replies": 20.2
+    },
+    {
+      "name": "金句/引用",
+      "post_count": 2,
+      "share_pct": 12.5,
+      "avg_engagement": 79.5,
+      "avg_likes": 73.5,
+      "avg_replies": 2
+    },
+    {
+      "name": "故事敘述＋互動提問",
+      "post_count": 1,
+      "share_pct": 6.2,
+      "avg_engagement": 21,
+      "avg_likes": 20,
+      "avg_replies": 1
+    },
+    {
+      "name": "立場短文",
+      "post_count": 1,
+      "share_pct": 6.2,
+      "avg_engagement": 5,
+      "avg_likes": 5,
+      "avg_replies": 0
+    }
+  ],
+  "tier_analysis": {
+    "tiers": [
+      {
+        "tier": "高互動組",
+        "post_count": 5,
+        "score_range": {
+          "min": 108,
+          "max": 744,
+          "median": 539
+        },
+        "aggregate": {
+          "avg_char_count": 222.4,
+          "avg_likes": 403.4,
+          "avg_replies": 40.4,
+          "avg_total_engagement": 477.8,
+          "question_rate_pct": 40.0,
+          "avg_sentences": 10.2,
+          "avg_second_person": 2.2,
+          "avg_first_person": 7
+        },
+        "lexicon_totals": {
+          "負面情緒": 3,
+          "正面情緒": 2,
+          "關係詞": 11,
+          "自我揭露": 8,
+          "時間標記": 10
+        },
+        "top_formats": [
+          {
+            "name": "自我揭露",
+            "count": 2
+          },
+          {
+            "name": "故事敘事",
+            "count": 1
+          },
+          {
+            "name": "二選一互動提問",
+            "count": 1
+          }
+        ],
+        "top_topics": [
+          {
+            "name": "感情",
+            "count": 1
+          },
+          {
+            "name": "人際關係",
+            "count": 1
+          },
+          {
+            "name": "生活",
+            "count": 1
+          }
+        ],
+        "samples": [
+          {
+            "post_id": "Dd2BfosAcIX",
+            "excerpt": "二十一歲那年，我們在便利商店外面講了一句很蠢的話。 如果三十歲我們都還是單身，就在一起吧。 那時候我們喝著一人一罐的啤酒，坐在紅色塑膠椅上，…",
+            "likes": 735,
+            "replies": 9,
+            "total_engagement": 846,
+            "char_count": 366,
+            "topic": "感情",
+            "format": "故事敘事",
+            "is_synthetic": false,
+            "url": "https://www.threads.com/@emoless_com/post/Dd2BfosAcIX",
+            "sentence_count": 11,
+            "avg_sentence_len": 18.7,
+            "question_marks": 0,
+            "second_person_count": 1,
+            "first_person_count": 12,
+            "ends_with_question": false,
+            "lexicon": {
+              "負面情緒": {
+                "count": 1,
+                "terms": [
+                  "哭"
+                ]
+              },
+              "正面情緒": {
+                "count": 1,
+                "terms": [
+                  "笑"
+                ]
+              },
+              "關係詞": {
+                "count": 2,
+                "terms": [
+                  "他",
+                  "我們"
+                ]
+              },
+              "自我揭露": {
+                "count": 1,
+                "terms": [
+                  "我"
+                ]
+              },
+              "時間標記": {
+                "count": 3,
+                "terms": [
+                  "後來",
+                  "那天",
+                  "最後"
+                ]
+              }
+            },
+            "top_terms": [
+              "二十",
+              "歲我",
+              "交過",
+              "十一",
+              "歲那"
+            ]
+          },
+          {
+            "post_id": "Dd4m-SxAdZV",
+            "excerpt": "剛剛鼓起勇氣打給我媽，跟她說我今年不打算再考教甄了。 雖然在心裡練習過很多次，她還是用吼的開場。 ：你考三年了現在說不考？那你這三年在幹嘛？…",
+            "likes": 504,
+            "replies": 92,
+            "total_engagement": 624,
+            "char_count": 292,
+            "topic": "人際關係",
+            "format": "二選一互動提問",
+            "is_synthetic": false,
+            "url": "https://www.threads.com/@emoless_com/post/Dd4m-SxAdZV",
+            "sentence_count": 10,
+            "avg_sentence_len": 20.7,
+            "question_marks": 4,
+            "second_person_count": 7,
+            "first_person_count": 8,
+            "ends_with_question": false,
+            "lexicon": {
+              "負面情緒": {
+                "count": 0,
+                "terms": []
+              },
+              "正面情緒": {
+                "count": 0,
+                "terms": []
+              },
+              "關係詞": {
+                "count": 3,
+                "terms": [
+                  "媽",
+                  "她",
+                  "我們"
+                ]
+              },
+              "自我揭露": {
+                "count": 2,
+                "terms": [
+                  "我",
+                  "我在"
+                ]
+              },
+              "時間標記": {
+                "count": 3,
+                "terms": [
+                  "那天",
+                  "現在",
+                  "去年"
+                ]
+              }
+            },
+            "top_terms": [
+              "三年",
+              "剛剛",
+              "考三",
+              "年了",
+              "考上"
+            ]
+          },
+          {
+            "post_id": "Dd3x3xym3sI",
+            "excerpt": "存款第一次到十萬，我花了兩年七個月。 剛開始是負的。卡費欠三萬二，學貸還有十一萬。 那時候發薪日，錢在帳戶裡停不到三天。 我開始記帳。第一個…",
+            "likes": 486,
+            "replies": 53,
+            "total_engagement": 560,
+            "char_count": 208,
+            "topic": "生活",
+            "format": "自我揭露",
+            "is_synthetic": false,
+            "url": "https://www.threads.com/@emoless_com/post/Dd3x3xym3sI",
+            "sentence_count": 15,
+            "avg_sentence_len": 12.4,
+            "question_marks": 1,
+            "second_person_count": 2,
+            "first_person_count": 5,
+            "ends_with_question": true,
+            "lexicon": {
+              "負面情緒": {
+                "count": 2,
+                "terms": [
+                  "難過",
+                  "慘"
+                ]
+              },
+              "正面情緒": {
+                "count": 1,
+                "terms": [
+                  "棒"
+                ]
+              },
+              "關係詞": {
+                "count": 3,
+                "terms": [
+                  "媽",
+                  "媽媽",
+                  "她"
+                ]
+              },
+              "自我揭露": {
+                "count": 1,
+                "terms": [
+                  "我"
+                ]
+              },
+              "時間標記": {
+                "count": 4,
+                "terms": [
+                  "今天",
+                  "現在",
+                  "上禮拜",
+                  "第一次"
+                ]
+              }
+            },
+            "top_terms": [
+              "第一",
+              "存款",
+              "十萬",
+              "花了",
+              "款第"
+            ]
+          },
+          {
+            "post_id": "Dd54r3nm-bF",
+            "excerpt": "加薪 2,400。 上個月主管問我要不要接組長，開出來的就是這個數字。 責任大概多三倍。要管四個人，其中一個比我大八歲。 我算了一下，一天多…",
+            "likes": 185,
+            "replies": 47,
+            "total_engagement": 243,
+            "char_count": 193,
+            "topic": "職場",
+            "format": "自我揭露",
+            "is_synthetic": false,
+            "url": "https://www.threads.com/@emoless_com/post/Dd54r3nm-bF",
+            "sentence_count": 13,
+            "avg_sentence_len": 13.4,
+            "question_marks": 0,
+            "second_person_count": 0,
+            "first_person_count": 10,
+            "ends_with_question": false,
+            "lexicon": {
+              "負面情緒": {
+                "count": 0,
+                "terms": []
+              },
+              "正面情緒": {
+                "count": 0,
+                "terms": []
+              },
+              "關係詞": {
+                "count": 3,
+                "terms": [
+                  "同事",
+                  "主管",
+                  "他"
+                ]
+              },
+              "自我揭露": {
+                "count": 4,
+                "terms": [
+                  "我",
+                  "我的",
+                  "自己",
+                  "我想"
+                ]
+              },
+              "時間標記": {
+                "count": 0,
+                "terms": []
+              }
+            },
+            "top_terms": [
+              "杯拿",
+              "拿鐵",
+              "加薪",
+              "月主",
+              "主管"
+            ]
+          },
+          {
+            "post_id": "Dd2dpQHGXqN",
+            "excerpt": "「你會跌倒、會迷路，事物會破碎，曲終人會散，這些都是人生必經的過程。」 —— 露比·瓊斯《一切都會好好的》",
+            "likes": 107,
+            "replies": 1,
+            "total_engagement": 116,
+            "char_count": 53,
+            "topic": "人生哲理/感悟",
+            "format": "金句/引用",
+            "is_synthetic": false,
+            "url": "https://www.threads.com/@emoless_com/post/Dd2dpQHGXqN",
+            "sentence_count": 2,
+            "avg_sentence_len": 26,
+            "question_marks": 0,
+            "second_person_count": 1,
+            "first_person_count": 0,
+            "ends_with_question": false,
+            "lexicon": {
+              "負面情緒": {
+                "count": 0,
+                "terms": []
+              },
+              "正面情緒": {
+                "count": 0,
+                "terms": []
+              },
+              "關係詞": {
+                "count": 0,
+                "terms": []
+              },
+              "自我揭露": {
+                "count": 0,
+                "terms": []
+              },
+              "時間標記": {
+                "count": 0,
+                "terms": []
+              }
+            },
+            "top_terms": [
+              "跌倒",
+              "迷路",
+              "事物",
+              "物會",
+              "破碎"
+            ]
+          }
+        ],
+        "sample_size": 5
+      },
+      {
+        "tier": "中互動組",
+        "post_count": 5,
+        "score_range": {
+          "min": 21,
+          "max": 94,
+          "median": 43
+        },
+        "aggregate": {
+          "avg_char_count": 215.8,
+          "avg_likes": 46.4,
+          "avg_replies": 3.8,
+          "avg_total_engagement": 51.8,
+          "question_rate_pct": 40.0,
+          "avg_sentences": 9.6,
+          "avg_second_person": 1,
+          "avg_first_person": 8
+        },
+        "lexicon_totals": {
+          "負面情緒": 3,
+          "正面情緒": 6,
+          "關係詞": 14,
+          "自我揭露": 12,
+          "時間標記": 9
+        },
+        "top_formats": [
+          {
+            "name": "故事敘事",
+            "count": 3
+          },
+          {
+            "name": "金句/引用",
+            "count": 1
+          },
+          {
+            "name": "故事敘述＋互動提問",
+            "count": 1
+          }
+        ],
+        "top_topics": [
+          {
+            "name": "兩性相處",
+            "count": 2
+          },
+          {
+            "name": "分手／關係觀察",
+            "count": 1
+          },
+          {
+            "name": "自我成長/感情觀",
+            "count": 1
+          }
+        ],
+        "samples": [
+          {
+            "post_id": "Dd7mUdfmYqy",
+            "excerpt": "交往四年，他記錯我生日三次。 第一年他以為是十四號，其實是十一號。我說沒關係，我自己也常忘。 第二年他記成下個月。我提醒他，他說抱歉最近太累…",
+            "likes": 88,
+            "replies": 6,
+            "total_engagement": 96,
+            "char_count": 271,
+            "topic": "兩性相處",
+            "format": "故事敘事",
+            "is_synthetic": false,
+            "url": "https://www.threads.com/@emoless_com/post/Dd7mUdfmYqy",
+            "sentence_count": 11,
+            "avg_sentence_len": 18.6,
+            "question_marks": 0,
+            "second_person_count": 0,
+            "first_person_count": 8,
+            "ends_with_question": false,
+            "lexicon": {
+              "負面情緒": {
+                "count": 2,
+                "terms": [
+                  "累",
+                  "錯"
+                ]
+              },
+              "正面情緒": {
+                "count": 2,
+                "terms": [
+                  "喜歡",
+                  "謝謝"
+                ]
+              },
+              "關係詞": {
+                "count": 4,
+                "terms": [
+                  "媽",
+                  "媽媽",
+                  "朋友",
+                  "他"
+                ]
+              },
+              "自我揭露": {
+                "count": 3,
+                "terms": [
+                  "我",
+                  "自己",
+                  "我曾經"
+                ]
+              },
+              "時間標記": {
+                "count": 1,
+                "terms": [
+                  "那天"
+                ]
+              }
+            },
+            "top_terms": [
+              "年他",
+              "記得",
+              "十一",
+              "喜歡",
+              "巧克"
+            ]
+          },
+          {
+            "post_id": "Dd6U87bm8KW",
+            "excerpt": "分手那天我人在桃園機場二航廈，手上還拿著他託我帶的胃藥。 我們異地四年。他在溫哥華，我在台北。時差十五個小時，夏令時間十六。 我手機裡有三個…",
+            "likes": 58,
+            "replies": 2,
+            "total_engagement": 63,
+            "char_count": 292,
+            "topic": "分手／關係觀察",
+            "format": "故事敘事",
+            "is_synthetic": false,
+            "url": "https://www.threads.com/@emoless_com/post/Dd6U87bm8KW",
+            "sentence_count": 11,
+            "avg_sentence_len": 18.7,
+            "question_marks": 0,
+            "second_person_count": 0,
+            "first_person_count": 11,
+            "ends_with_question": false,
+            "lexicon": {
+              "負面情緒": {
+                "count": 0,
+                "terms": []
+              },
+              "正面情緒": {
+                "count": 0,
+                "terms": []
+              },
+              "關係詞": {
+                "count": 5,
+                "terms": [
+                  "媽",
+                  "媽媽",
+                  "同事",
+                  "他",
+                  "我們"
+                ]
+              },
+              "自我揭露": {
+                "count": 2,
+                "terms": [
+                  "我",
+                  "我在"
+                ]
+              },
+              "時間標記": {
+                "count": 2,
+                "terms": [
+                  "今天",
+                  "那天"
+                ]
+              }
+            },
+            "top_terms": [
+              "提醒",
+              "醒他",
+              "哪個",
+              "分手",
+              "手那"
+            ]
+          },
+          {
+            "post_id": "Dd7JQFbj8lM",
+            "excerpt": "「最糟糕的，並不是你失去了一個愛的人；而是你為了一個人，失去了自己。」 ——Peter Su",
+            "likes": 40,
+            "replies": 3,
+            "total_engagement": 43,
+            "char_count": 46,
+            "topic": "自我成長/感情觀",
+            "format": "金句/引用",
+            "is_synthetic": false,
+            "url": "https://www.threads.com/@emoless_com/post/Dd7JQFbj8lM",
+            "sentence_count": 2,
+            "avg_sentence_len": 22.5,
+            "question_marks": 0,
+            "second_person_count": 2,
+            "first_person_count": 0,
+            "ends_with_question": false,
+            "lexicon": {
+              "負面情緒": {
+                "count": 1,
+                "terms": [
+                  "糟"
+                ]
+              },
+              "正面情緒": {
+                "count": 1,
+                "terms": [
+                  "愛"
+                ]
+              },
+              "關係詞": {
+                "count": 0,
+                "terms": []
+              },
+              "自我揭露": {
+                "count": 1,
+                "terms": [
+                  "自己"
+                ]
+              },
+              "時間標記": {
+                "count": 0,
+                "terms": []
+              }
+            },
+            "top_terms": [
+              "失去",
+              "糟糕",
+              "糕的",
+              "愛的",
+              "為了"
+            ]
+          },
+          {
+            "post_id": "Dd6u7gHmzYP",
+            "excerpt": "簽約那天，代書問權狀要登記誰的名字。 他很自然地說，寫我的就好。然後轉頭問我，對吧？ 我點頭。那時候我手上還拿著剛從銀行領出來的本票，一百八…",
+            "likes": 26,
+            "replies": 7,
+            "total_engagement": 36,
+            "char_count": 287,
+            "topic": "兩性相處",
+            "format": "故事敘事",
+            "is_synthetic": false,
+            "url": "https://www.threads.com/@emoless_com/post/Dd6u7gHmzYP",
+            "sentence_count": 13,
+            "avg_sentence_len": 15.6,
+            "question_marks": 1,
+            "second_person_count": 0,
+            "first_person_count": 13,
+            "ends_with_question": false,
+            "lexicon": {
+              "負面情緒": {
+                "count": 0,
+                "terms": []
+              },
+              "正面情緒": {
+                "count": 1,
+                "terms": [
+                  "喜歡"
+                ]
+              },
+              "關係詞": {
+                "count": 2,
+                "terms": [
+                  "他",
+                  "我們"
+                ]
+              },
+              "自我揭露": {
+                "count": 4,
+                "terms": [
+                  "我",
+                  "我的",
+                  "我覺得",
+                  "我想"
+                ]
+              },
+              "時間標記": {
+                "count": 1,
+                "terms": [
+                  "那天"
+                ]
+              }
+            },
+            "top_terms": [
+              "代書",
+              "寫我",
+              "問我",
+              "銀行",
+              "十萬"
+            ]
+          },
+          {
+            "post_id": "Dd8EL_MGx4Z",
+            "excerpt": "我媽昨天傳了十七隻一模一樣的熊給我。 一隻跳舞的熊。她人生第一次在 LINE 傳貼圖。 我回：媽妳按太多了。 她回：怎麼收回 然後又一隻熊。…",
+            "likes": 20,
+            "replies": 1,
+            "total_engagement": 21,
+            "char_count": 183,
+            "topic": "人際關係",
+            "format": "故事敘述＋互動提問",
+            "is_synthetic": false,
+            "url": "https://www.threads.com/@emoless_com/post/Dd8EL_MGx4Z",
+            "sentence_count": 11,
+            "avg_sentence_len": 15,
+            "question_marks": 2,
+            "second_person_count": 3,
+            "first_person_count": 8,
+            "ends_with_question": true,
+            "lexicon": {
+              "負面情緒": {
+                "count": 0,
+                "terms": []
+              },
+              "正面情緒": {
+                "count": 2,
+                "terms": [
+                  "笑",
+                  "好笑"
+                ]
+              },
+              "關係詞": {
+                "count": 3,
+                "terms": [
+                  "媽",
+                  "她",
+                  "長輩"
+                ]
+              },
+              "自我揭露": {
+                "count": 2,
+                "terms": [
+                  "我",
+                  "我後來"
+                ]
+              },
+              "時間標記": {
+                "count": 5,
+                "terms": [
+                  "昨天",
+                  "以前",
+                  "後來",
+                  "上禮拜",
+                  "第一次"
+                ]
+              }
+            },
+            "top_terms": [
+              "十七",
+              "七隻",
+              "麼收",
+              "收回",
+              "隻熊"
+            ]
+          }
+        ],
+        "sample_size": 5
+      },
+      {
+        "tier": "低互動組",
+        "post_count": 6,
+        "score_range": {
+          "min": 1,
+          "max": 21,
+          "median": 5.5
+        },
+        "aggregate": {
+          "avg_char_count": 198.83,
+          "avg_likes": 7.5,
+          "avg_replies": 0.67,
+          "avg_total_engagement": 8.5,
+          "question_rate_pct": 0.0,
+          "avg_sentences": 11.6,
+          "avg_second_person": 1,
+          "avg_first_person": 4.8
+        },
+        "lexicon_totals": {
+          "負面情緒": 1,
+          "正面情緒": 4,
+          "關係詞": 8,
+          "自我揭露": 9,
+          "時間標記": 11
+        },
+        "top_formats": [
+          {
+            "name": "自我揭露",
+            "count": 3
+          },
+          {
+            "name": "故事敘事",
+            "count": 2
+          },
+          {
+            "name": "立場短文",
+            "count": 1
+          }
+        ],
+        "top_topics": [
+          {
+            "name": "感情",
+            "count": 1
+          },
+          {
+            "name": "感情心理",
+            "count": 1
+          },
+          {
+            "name": "職場",
+            "count": 1
+          }
+        ],
+        "samples": [
+          {
+            "post_id": "Dd5EnUvmT0N",
+            "excerpt": "朋友三天沒回我，我覺得很正常。 他五個小時沒回，我已經把對話往上滑到三月。 （三月那段他還會用貼圖，一隻戴墨鏡的柴犬） 手機放桌上，螢幕朝下…",
+            "likes": 13,
+            "replies": 1,
+            "total_engagement": 14,
+            "char_count": 197,
+            "topic": "感情心理",
+            "format": "自我揭露",
+            "is_synthetic": false,
+            "url": "https://www.threads.com/@emoless_com/post/Dd5EnUvmT0N",
+            "sentence_count": 14,
+            "avg_sentence_len": 12.6,
+            "question_marks": 0,
+            "second_person_count": 0,
+            "first_person_count": 6,
+            "ends_with_question": false,
+            "lexicon": {
+              "負面情緒": {
+                "count": 0,
+                "terms": []
+              },
+              "正面情緒": {
+                "count": 1,
+                "terms": [
+                  "愛"
+                ]
+              },
+              "關係詞": {
+                "count": 2,
+                "terms": [
+                  "朋友",
+                  "他"
+                ]
+              },
+              "自我揭露": {
+                "count": 3,
+                "terms": [
+                  "我",
+                  "自己",
+                  "我覺得"
+                ]
+              },
+              "時間標記": {
+                "count": 0,
+                "terms": []
+              }
+            },
+            "top_terms": [
+              "三月",
+              "朋友",
+              "友三",
+              "三天",
+              "天沒"
+            ]
+          },
+          {
+            "post_id": "Dd24_vCm3ko",
+            "excerpt": "主管說：你來提個改善方案吧。 我說好。 （心裡想的是，三萬二要改善什麼，改善我自己嗎） 他補一句：不用有壓力，想想怎麼讓流程更順就好。 我回…",
+            "likes": 6,
+            "replies": 0,
+            "total_engagement": 7,
+            "char_count": 185,
+            "topic": "職場",
+            "format": "自我揭露",
+            "is_synthetic": false,
+            "url": "https://www.threads.com/@emoless_com/post/Dd24_vCm3ko",
+            "sentence_count": 13,
+            "avg_sentence_len": 12.8,
+            "question_marks": 0,
+            "second_person_count": 3,
+            "first_person_count": 7,
+            "ends_with_question": false,
+            "lexicon": {
+              "負面情緒": {
+                "count": 0,
+                "terms": []
+              },
+              "正面情緒": {
+                "count": 0,
+                "terms": []
+              },
+              "關係詞": {
+                "count": 2,
+                "terms": [
+                  "主管",
+                  "他"
+                ]
+              },
+              "自我揭露": {
+                "count": 2,
+                "terms": [
+                  "我",
+                  "自己"
+                ]
+              },
+              "時間標記": {
+                "count": 3,
+                "terms": [
+                  "明天",
+                  "那天",
+                  "最後"
+                ]
+              }
+            },
+            "top_terms": [
+              "改善",
+              "主管",
+              "管說",
+              "提個",
+              "善方"
+            ]
+          },
+          {
+            "post_id": "Dd3SLGBGzPb",
+            "excerpt": "「你不需要活在別人的讚裡。別人給的評價，就像是天氣，今天放晴、明天可能就下雨。」",
+            "likes": 5,
+            "replies": 0,
+            "total_engagement": 5,
+            "char_count": 40,
+            "topic": "人生哲理/感悟",
+            "format": "立場短文",
+            "is_synthetic": false,
+            "url": "https://www.threads.com/@emoless_com/post/Dd3SLGBGzPb",
+            "sentence_count": 3,
+            "avg_sentence_len": 12.7,
+            "question_marks": 0,
+            "second_person_count": 1,
+            "first_person_count": 0,
+            "ends_with_question": false,
+            "lexicon": {
+              "負面情緒": {
+                "count": 0,
+                "terms": []
+              },
+              "正面情緒": {
+                "count": 1,
+                "terms": [
+                  "讚"
+                ]
+              },
+              "關係詞": {
+                "count": 0,
+                "terms": []
+              },
+              "自我揭露": {
+                "count": 0,
+                "terms": []
+              },
+              "時間標記": {
+                "count": 2,
+                "terms": [
+                  "今天",
+                  "明天"
+                ]
+              }
+            },
+            "top_terms": [
+              "別人",
+              "需要",
+              "活在",
+              "讚裡",
+              "評價"
+            ]
+          },
+          {
+            "post_id": "Dd4OJCXmmYN",
+            "excerpt": "三月第一週，接到企劃。 四月，改到第七版。 五月某個晚上十一點半，還在對預算表。便利商店的關東煮只剩白蘿蔔。 六月發表會。上台的是主管。 行…",
+            "likes": 2,
+            "replies": 0,
+            "total_engagement": 2,
+            "char_count": 195,
+            "topic": "職場霸凌",
+            "format": "故事敘事",
+            "is_synthetic": false,
+            "url": "https://www.threads.com/@emoless_com/post/Dd4OJCXmmYN",
+            "sentence_count": 13,
+            "avg_sentence_len": 13.4,
+            "question_marks": 0,
+            "second_person_count": 0,
+            "first_person_count": 6,
+            "ends_with_question": false,
+            "lexicon": {
+              "負面情緒": {
+                "count": 1,
+                "terms": [
+                  "累"
+                ]
+              },
+              "正面情緒": {
+                "count": 2,
+                "terms": [
+                  "笑",
+                  "好笑"
+                ]
+              },
+              "關係詞": {
+                "count": 2,
+                "terms": [
+                  "主管",
+                  "他"
+                ]
+              },
+              "自我揭露": {
+                "count": 2,
+                "terms": [
+                  "我",
+                  "自己"
+                ]
+              },
+              "時間標記": {
+                "count": 3,
+                "terms": [
+                  "後來",
+                  "那天",
+                  "現在"
+                ]
+              }
+            },
+            "top_terms": [
+              "企劃",
+              "機會",
+              "三月",
+              "月第",
+              "第一"
+            ]
+          },
+          {
+            "post_id": "Dd1noLLGq1g",
+            "excerpt": "現在的說法大概是這樣：會講出需求的人比較好處理，難的是不說話的那種。所以教學都在教怎麼接住沉默。怎麼等。怎麼不逼他。怎麼留空間。 這段我懂。…",
+            "likes": 1,
+            "replies": 0,
+            "total_engagement": 1,
+            "char_count": 200,
+            "topic": "人際溝通",
+            "format": "自我揭露",
+            "is_synthetic": false,
+            "url": "https://www.threads.com/@emoless_com/post/Dd1noLLGq1g",
+            "sentence_count": 15,
+            "avg_sentence_len": 12.1,
+            "question_marks": 0,
+            "second_person_count": 1,
+            "first_person_count": 5,
+            "ends_with_question": false,
+            "lexicon": {
+              "負面情緒": {
+                "count": 0,
+                "terms": []
+              },
+              "正面情緒": {
+                "count": 0,
+                "terms": []
+              },
+              "關係詞": {
+                "count": 2,
+                "terms": [
+                  "他",
+                  "她"
+                ]
+              },
+              "自我揭露": {
+                "count": 2,
+                "terms": [
+                  "我",
+                  "自己"
+                ]
+              },
+              "時間標記": {
+                "count": 3,
+                "terms": [
+                  "今天",
+                  "現在",
+                  "最後"
+                ]
+              }
+            },
+            "top_terms": [
+              "同意",
+              "開口",
+              "口的",
+              "現在",
+              "法大"
+            ]
+          }
+        ],
+        "sample_size": 5
+      }
+    ],
+    "method": "likes+replies 三分位分組，各組取中位數鄰近 3-5 則做相同 NLP 特徵萃取",
+    "findings": [
+      "**高互動組**（5 則，互動分數 108–744）： 平均 222 字、403.4 讚 / 40.4 回覆， 提問率 40.0%，主力文型「自我揭露」。 取樣 5 則的詞彙訊號：自我揭露 8、 關係詞 11、負面情緒 3、正面情緒 2； 第二人稱平均 2.2 次。",
+      "**中互動組**（5 則，互動分數 21–94）： 平均 216 字、46.4 讚 / 3.8 回覆， 提問率 40.0%，主力文型「故事敘事」。 取樣 5 則的詞彙訊號：自我揭露 12、 關係詞 14、負面情緒 3、正面情緒 6； 第二人稱平均 1 次。",
+      "**低互動組**（6 則，互動分數 1–21）： 平均 199 字、7.5 讚 / 0.7 回覆， 提問率 0.0%，主力文型「自我揭露」。 取樣 5 則的詞彙訊號：自我揭露 9、 關係詞 8、負面情緒 1、正面情緒 4； 第二人稱平均 1 次。"
+    ]
+  }
+}
