@@ -70,7 +70,7 @@ export function TierChart({ analysis }: { analysis: Analysis }) {
           <XAxis dataKey="name" {...axisProps} />
           <YAxis {...axisProps} />
           <Tooltip content={<TooltipBox />} cursor={{ fill: 'rgba(37,99,235,.06)' }} />
-          <Bar dataKey="平均總互動" radius={[4, 4, 0, 0]}>
+          <Bar dataKey="平均總互動" radius={[4, 4, 0, 0]} isAnimationActive={false}>
             {data.map((_, i) => (
               <Cell key={i} fill={SERIES[i % SERIES.length]} />
             ))}
@@ -98,7 +98,7 @@ export function HourChart({ analysis }: { analysis: Analysis }) {
           <XAxis dataKey="name" {...axisProps} interval={0} angle={-40} textAnchor="end" height={54} />
           <YAxis {...axisProps} />
           <Tooltip content={<TooltipBox />} cursor={{ fill: 'rgba(37,99,235,.06)' }} />
-          <Bar dataKey="平均互動" fill={SERIES[0]} radius={[4, 4, 0, 0]} />
+          <Bar dataKey="平均互動" fill={SERIES[0]} radius={[4, 4, 0, 0]} isAnimationActive={false} />
         </BarChart>
       </ResponsiveContainer>
     </div>
@@ -121,7 +121,7 @@ export function LengthChart({ analysis }: { analysis: Analysis }) {
           <XAxis dataKey="name" {...axisProps} />
           <YAxis {...axisProps} />
           <Tooltip content={<TooltipBox />} cursor={{ fill: 'rgba(37,99,235,.06)' }} />
-          <Bar dataKey="平均互動" fill={SERIES[2]} radius={[4, 4, 0, 0]}>
+          <Bar dataKey="平均互動" fill={SERIES[2]} radius={[4, 4, 0, 0]} isAnimationActive={false}>
             <LabelList dataKey="平均互動" position="top" fontSize={12} fill={AXIS} />
           </Bar>
         </BarChart>
@@ -158,7 +158,7 @@ export function ScatterLength({
           <YAxis type="number" dataKey="y" name="總互動" {...axisProps} />
           <ZAxis type="number" dataKey="z" range={[50, 70]} />
           <Tooltip content={<TooltipBox />} cursor={{ strokeDasharray: '3 3' }} />
-          <Scatter name="貼文" data={data} fill={SERIES[1]} fillOpacity={0.75} />
+          <Scatter name="貼文" data={data} fill={SERIES[1]} fillOpacity={0.75} isAnimationActive={false} />
         </ScatterChart>
       </ResponsiveContainer>
     </div>
