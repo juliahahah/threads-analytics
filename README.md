@@ -1,5 +1,8 @@
 # Threads 帳號貼文爬取與數據分析
 
+**線上版：https://threads-analytics-pi-sable.vercel.app**（需登入；未登入會被導回登入頁）
+
+
 分析 Threads 帳號 **@emoless_com** 的發文表現：蒐集貼文 → 清理 → 特徵萃取 → 互動分析 → 報告。
 含 Next.js + Supabase 的登入制 dashboard，可部署至 Vercel。
 
