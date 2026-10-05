@@ -4,6 +4,7 @@
  * Dashboard charts (Recharts). Client component because Recharts measures the
  * DOM; the page itself stays a Server Component so auth runs on the server.
  */
+import { useEffect, useState } from 'react';
 import {
   Bar,
   BarChart,
@@ -20,15 +21,47 @@ import {
 } from 'recharts';
 import type { Analysis } from '@/lib/types';
 
-const GRID = '#e3e6ea';
-const AXIS = '#6b7280';
-const SERIES = ['#2563eb', '#7c3aed', '#0891b2', '#059669', '#d97706', '#dc2626'];
-
-const axisProps = {
-  stroke: AXIS,
-  tick: { fill: AXIS, fontSize: 12 },
-  tickLine: false,
+// Recharts needs literal colours (it writes them into SVG attributes), so the
+// palette is mirrored from globals.css and swapped on the client once we know
+// the resolved theme. See useThemePalette below.
+const LIGHT = {
+  grid: '#e4e2dd',
+  axis: '#787f8c',
+  accent: '#4c4ddc',
+  tiers: ['#0f766e', '#b45309', '#9f1239'],
 };
+const DARK = {
+  grid: '#2a2f3a',
+  axis: '#848c9b',
+  accent: '#8b8cf0',
+  tiers: ['#4cc3b4', '#e0a159', '#ef7a99'],
+};
+
+/** Resolve the active theme the same way globals.css does. */
+function useThemePalette() {
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    const read = () => {
+      const stamped = document.documentElement.getAttribute('data-theme');
+      if (stamped === 'dark') return true;
+      if (stamped === 'light') return false;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    };
+    setDark(read());
+
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const onChange = () => setDark(read());
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  return dark ? DARK : LIGHT;
+}
+
+function makeAxisProps(axis: string) {
+  return { stroke: axis, tick: { fill: axis, fontSize: 12 }, tickLine: false };
+}
 
 function TooltipBox({ active, payload, label }: any) {
   if (!active || !payload?.length) return null;
@@ -56,6 +89,8 @@ function TooltipBox({ active, payload, label }: any) {
 
 /** Chart 1 — average engagement by tier. */
 export function TierChart({ analysis }: { analysis: Analysis }) {
+  const pal = useThemePalette();
+  const axisProps = makeAxisProps(pal.axis);
   const data = analysis.tier_analysis.tiers.map((t) => ({
     name: t.tier,
     平均總互動: t.aggregate.avg_total_engagement,
@@ -66,15 +101,15 @@ export function TierChart({ analysis }: { analysis: Analysis }) {
     <div className="chart-box">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} margin={{ top: 16, right: 16, left: 0, bottom: 4 }}>
-          <CartesianGrid stroke={GRID} vertical={false} />
+          <CartesianGrid stroke={pal.grid} vertical={false} />
           <XAxis dataKey="name" {...axisProps} />
           <YAxis {...axisProps} />
-          <Tooltip content={<TooltipBox />} cursor={{ fill: 'rgba(37,99,235,.06)' }} />
+          <Tooltip content={<TooltipBox />} cursor={{ fill: 'rgba(124,124,220,.08)' }} />
           <Bar dataKey="平均總互動" radius={[4, 4, 0, 0]} isAnimationActive={false}>
             {data.map((_, i) => (
-              <Cell key={i} fill={SERIES[i % SERIES.length]} />
+              <Cell key={i} fill={pal.tiers[i % pal.tiers.length]} />
             ))}
-            <LabelList dataKey="平均總互動" position="top" fontSize={12} fill={AXIS} />
+            <LabelList dataKey="平均總互動" position="top" fontSize={12} fill={pal.axis} />
           </Bar>
         </BarChart>
       </ResponsiveContainer>
@@ -84,6 +119,8 @@ export function TierChart({ analysis }: { analysis: Analysis }) {
 
 /** Chart 2 — posting hour vs average engagement. */
 export function HourChart({ analysis }: { analysis: Analysis }) {
+  const pal = useThemePalette();
+  const axisProps = makeAxisProps(pal.axis);
   const data = analysis.timing.by_hour.map((h) => ({
     name: `${String(h.hour).padStart(2, '0')}:00`,
     平均互動: h.avg_engagement,
@@ -94,11 +131,11 @@ export function HourChart({ analysis }: { analysis: Analysis }) {
     <div className="chart-box">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} margin={{ top: 16, right: 16, left: 0, bottom: 4 }}>
-          <CartesianGrid stroke={GRID} vertical={false} />
+          <CartesianGrid stroke={pal.grid} vertical={false} />
           <XAxis dataKey="name" {...axisProps} interval={0} angle={-40} textAnchor="end" height={54} />
           <YAxis {...axisProps} />
-          <Tooltip content={<TooltipBox />} cursor={{ fill: 'rgba(37,99,235,.06)' }} />
-          <Bar dataKey="平均互動" fill={SERIES[0]} radius={[4, 4, 0, 0]} isAnimationActive={false} />
+          <Tooltip content={<TooltipBox />} cursor={{ fill: 'rgba(124,124,220,.08)' }} />
+          <Bar dataKey="平均互動" fill={pal.accent} radius={[4, 4, 0, 0]} isAnimationActive={false} />
         </BarChart>
       </ResponsiveContainer>
     </div>
@@ -107,6 +144,8 @@ export function HourChart({ analysis }: { analysis: Analysis }) {
 
 /** Chart 3 — character-count bucket vs engagement. */
 export function LengthChart({ analysis }: { analysis: Analysis }) {
+  const pal = useThemePalette();
+  const axisProps = makeAxisProps(pal.axis);
   const data = analysis.length_vs_engagement.buckets.map((b) => ({
     name: b.bucket,
     平均互動: b.avg_engagement,
@@ -117,12 +156,12 @@ export function LengthChart({ analysis }: { analysis: Analysis }) {
     <div className="chart-box">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} margin={{ top: 16, right: 16, left: 0, bottom: 4 }}>
-          <CartesianGrid stroke={GRID} vertical={false} />
+          <CartesianGrid stroke={pal.grid} vertical={false} />
           <XAxis dataKey="name" {...axisProps} />
           <YAxis {...axisProps} />
-          <Tooltip content={<TooltipBox />} cursor={{ fill: 'rgba(37,99,235,.06)' }} />
-          <Bar dataKey="平均互動" fill={SERIES[2]} radius={[4, 4, 0, 0]} isAnimationActive={false}>
-            <LabelList dataKey="平均互動" position="top" fontSize={12} fill={AXIS} />
+          <Tooltip content={<TooltipBox />} cursor={{ fill: 'rgba(124,124,220,.08)' }} />
+          <Bar dataKey="平均互動" fill={pal.accent} radius={[4, 4, 0, 0]} isAnimationActive={false}>
+            <LabelList dataKey="平均互動" position="top" fontSize={12} fill={pal.axis} />
           </Bar>
         </BarChart>
       </ResponsiveContainer>
@@ -136,6 +175,8 @@ export function ScatterLength({
 }: {
   points: { char_count: number; total_engagement: number; post_id: string }[];
 }) {
+  const pal = useThemePalette();
+  const axisProps = makeAxisProps(pal.axis);
   const data = points.map((p) => ({
     x: p.char_count,
     y: p.total_engagement,
@@ -147,18 +188,18 @@ export function ScatterLength({
     <div className="chart-box">
       <ResponsiveContainer width="100%" height="100%">
         <ScatterChart margin={{ top: 16, right: 20, left: 0, bottom: 16 }}>
-          <CartesianGrid stroke={GRID} />
+          <CartesianGrid stroke={pal.grid} />
           <XAxis
             type="number"
             dataKey="x"
             name="字數"
             {...axisProps}
-            label={{ value: '字數', position: 'insideBottom', offset: -8, fill: AXIS, fontSize: 12 }}
+            label={{ value: '字數', position: 'insideBottom', offset: -8, fill: pal.axis, fontSize: 12 }}
           />
           <YAxis type="number" dataKey="y" name="總互動" {...axisProps} />
           <ZAxis type="number" dataKey="z" range={[50, 70]} />
           <Tooltip content={<TooltipBox />} cursor={{ strokeDasharray: '3 3' }} />
-          <Scatter name="貼文" data={data} fill={SERIES[1]} fillOpacity={0.75} isAnimationActive={false} />
+          <Scatter name="貼文" data={data} fill={pal.accent} fillOpacity={0.75} isAnimationActive={false} />
         </ScatterChart>
       </ResponsiveContainer>
     </div>

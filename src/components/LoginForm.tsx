@@ -1,13 +1,13 @@
 'use client';
 
 /**
- * Login page — supports BOTH required methods:
+ * Login form — supports BOTH required methods:
  *   - Email + Password (sign in / sign up)
  *   - Magic Link
  *
- * When Supabase is not configured the form is disabled and an explicit
- * demo entry point is offered, so the dashboard can still be verified
- * locally without cloud credentials.
+ * When Supabase is not configured the inputs are disabled (there is no auth
+ * backend to talk to) and an explicit demo entry point is offered, so the
+ * dashboard can still be verified locally without cloud credentials.
  */
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -25,14 +25,11 @@ export default function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [busy, setBusy] = useState(false);
-  const [error, setError] = useState<string | null>(
-    params.get('reason') === 'not-configured'
-      ? '尚未設定 Supabase 環境變數，無法使用帳號登入。可改用下方的示範模式。'
-      : null,
-  );
+  const [error, setError] = useState<string | null>(null);
   const [info, setInfo] = useState<string | null>(null);
 
   const redirectTo = params.get('redirectedFrom') ?? '/dashboard';
+  const blocked = params.get('reason') === 'not-configured';
 
   async function handlePassword(signUp: boolean) {
     setError(null);
@@ -48,9 +45,7 @@ export default function LoginForm() {
         ? await supabase.auth.signUp({
             email,
             password,
-            options: {
-              emailRedirectTo: `${window.location.origin}/auth/callback`,
-            },
+            options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
           })
         : await supabase.auth.signInWithPassword({ email, password });
 
@@ -59,7 +54,7 @@ export default function LoginForm() {
         return;
       }
       if (signUp) {
-        setInfo('註冊成功。若專案開啟了信箱驗證，請先到信箱完成確認再登入。');
+        setInfo('註冊成功。請直接按「登入」；若 Supabase 開啟了信箱驗證，需先到信箱完成確認。');
         return;
       }
       router.push(redirectTo);
@@ -98,41 +93,50 @@ export default function LoginForm() {
   }
 
   return (
-    <main className="wrap" style={{ maxWidth: 440 }}>
-      <h1>登入</h1>
-      <p className="muted">登入後即可建立與檢視分析報告。</p>
+    <main className="auth-wrap">
+      <div className="auth-card">
+        <header className="stack" style={{ gap: 8 }}>
+          <div className="auth-brand">
+            <span className="mark" aria-hidden="true">T</span>
+            <span className="eyebrow">Threads 貼文分析</span>
+          </div>
+          <h1 style={{ fontSize: '1.75rem' }}>登入</h1>
+          <p className="muted" style={{ margin: 0 }}>登入後即可建立與檢視分析報告。</p>
+        </header>
 
-      <div className="card" style={{ marginTop: 16 }}>
-        <div style={{ display: 'flex', gap: 8, marginBottom: 4 }}>
-          <button
-            className={`btn ${mode === 'password' ? '' : 'secondary'}`}
-            onClick={() => setMode('password')}
-            type="button"
-          >
+      {!configured && (
+        <div className="note">
+          <strong>尚未設定 Supabase，帳號登入暫時無法使用。</strong>
+          <br />
+          下方欄位因此停用。要直接看分析結果，請用本頁最下方的「以示範模式檢視 dashboard」。
+        </div>
+      )}
+
+      <section className="panel stack" style={{ gap: 16 }}>
+        <div className="seg" role="group" aria-label="登入方式">
+          <button type="button" aria-pressed={mode === 'password'} onClick={() => setMode('password')}>
             Email / 密碼
           </button>
-          <button
-            className={`btn ${mode === 'magic' ? '' : 'secondary'}`}
-            onClick={() => setMode('magic')}
-            type="button"
-          >
+          <button type="button" aria-pressed={mode === 'magic'} onClick={() => setMode('magic')}>
             Magic Link
           </button>
         </div>
 
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          type="email"
-          value={email}
-          autoComplete="email"
-          placeholder="you@example.com"
-          onChange={(e) => setEmail(e.target.value)}
-          disabled={!configured || busy}
-        />
+        <div className="field">
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            value={email}
+            autoComplete="email"
+            placeholder="you@example.com"
+            onChange={(e) => setEmail(e.target.value)}
+            disabled={!configured || busy}
+          />
+        </div>
 
         {mode === 'password' && (
-          <>
+          <div className="field">
             <label htmlFor="password">密碼</label>
             <input
               id="password"
@@ -143,13 +147,13 @@ export default function LoginForm() {
               onChange={(e) => setPassword(e.target.value)}
               disabled={!configured || busy}
             />
-          </>
+          </div>
         )}
 
-        {error && <div className="notice error">{error}</div>}
-        {info && <div className="notice ok">{info}</div>}
+        {error && <div className="msg error">{error}</div>}
+        {info && <div className="msg ok">{info}</div>}
 
-        <div style={{ display: 'flex', gap: 8, marginTop: 18, flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
           {mode === 'password' ? (
             <>
               <button
@@ -170,35 +174,34 @@ export default function LoginForm() {
               </button>
             </>
           ) : (
-            <button
-              className="btn"
-              onClick={handleMagicLink}
-              disabled={!configured || busy}
-              type="button"
-            >
+            <button className="btn" onClick={handleMagicLink} disabled={!configured || busy} type="button">
               {busy ? '寄送中…' : '寄送登入連結'}
             </button>
           )}
         </div>
-      </div>
+      </section>
 
       {!configured && (
-        <div className="card" style={{ marginTop: 16 }}>
-          <h3 style={{ marginTop: 0 }}>本機示範模式</h3>
-          <p className="muted">
-            尚未設定 <code>NEXT_PUBLIC_SUPABASE_URL</code> 與{' '}
-            <code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code>。
-            你仍可用示範模式檢視以真實資料產出的完整 dashboard，用於驗證資料管線與圖表。
+        <section className="panel stack" style={{ gap: 12 }}>
+          <h3 style={{ margin: 0 }}>本機示範模式</h3>
+          <p className="muted" style={{ margin: 0 }}>
+            以真實資料產出的完整 dashboard，用於驗證資料管線與圖表。
+            設定 Supabase 金鑰後，此入口會自動關閉，未登入將無法進入。
           </p>
-          <Link href="/dashboard?demo=1" className="btn secondary">
-            以示範模式檢視 dashboard
-          </Link>
-        </div>
+          <div>
+            <Link href="/dashboard?demo=1" className="btn">以示範模式檢視 dashboard</Link>
+          </div>
+        </section>
       )}
 
-      <p className="muted" style={{ marginTop: 20 }}>
-        <Link href="/">← 回首頁</Link>
-      </p>
+      {blocked && configured && (
+        <div className="msg error">無法進入 dashboard，請先登入。</div>
+      )}
+
+        <p className="muted" style={{ margin: 0 }}>
+          <Link href="/">← 回首頁</Link>
+        </p>
+      </div>
     </main>
   );
 }
