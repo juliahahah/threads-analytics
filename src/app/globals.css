@@ -490,3 +490,49 @@ label { display: block; font-size: .83rem; font-weight: 600; margin-bottom: 6px;
   font-size: .95rem;
   flex: none;
 }
+
+/* ------------------------------------------------- engagement mix (stacked) */
+.mix { display: flex; flex-direction: column; gap: 14px; }
+
+.mix-bar {
+  display: flex;
+  height: 30px;
+  border-radius: 7px;
+  overflow: hidden;
+  background: var(--surface-sunk);
+}
+.mix-seg { display: block; min-width: 2px; }
+
+.mix-legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px 18px;
+}
+.mix-legend li { display: flex; align-items: center; gap: 8px; font-size: .85rem; }
+.mix-legend .dot { width: 9px; height: 9px; border-radius: 2px; flex: none; }
+.mix-k { color: var(--ink-soft); }
+.mix-v { margin-left: auto; font-weight: 600; font-variant-numeric: tabular-nums; }
+.mix-n { color: var(--ink-mute); font-size: .78rem; font-variant-numeric: tabular-nums; min-width: 42px; text-align: right; }
+
+/* --------------------------------------------------- question-rate compare */
+.qr-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 13px; }
+.qr-list li {
+  display: grid;
+  grid-template-columns: 72px 1fr 46px auto;
+  align-items: center;
+  gap: 11px;
+  font-size: .86rem;
+}
+.qr-k { color: var(--ink-soft); white-space: nowrap; }
+.qr-track { height: 9px; border-radius: 999px; background: var(--surface-sunk); overflow: hidden; }
+.qr-fill { display: block; height: 100%; border-radius: 999px; min-width: 0; }
+.qr-v { font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
+.qr-n { color: var(--ink-mute); font-size: .79rem; white-space: nowrap; }
+
+@media (max-width: 480px) {
+  .qr-list li { grid-template-columns: 62px 1fr 42px; }
+  .qr-n { grid-column: 2 / -1; }
+}

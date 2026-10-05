@@ -11,7 +11,10 @@ import { redirect } from 'next/navigation';
 import { isSupabaseConfigured } from '@/lib/supabase';
 import { createServerSupabase } from '@/lib/supabase-server';
 import { getLatestAnalysis, getMockPosts } from '@/lib/data';
-import { TierChart, HourChart, LengthChart, ScatterLength } from '@/components/Charts';
+import {
+  TierChart, HourChart, LengthChart, ScatterLength,
+  EngagementMix, PostRankChart, QuestionRateBars,
+} from '@/components/Charts';
 
 export const dynamic = 'force-dynamic';
 
@@ -86,6 +89,32 @@ export default async function DashboardPage({
 
   const hi = tiers[0];
   const lo = tiers[tiers.length - 1];
+
+  // Interaction composition — the four types genuinely sum to the total,
+  // so a stacked bar is an honest representation here.
+  const sum = (k: 'likes' | 'replies' | 'reposts' | 'quotes') =>
+    posts.reduce((n, p) => n + p[k], 0);
+  const mixTotal = sum('likes') + sum('replies') + sum('reposts') + sum('quotes');
+  const mix = ([
+    ['讚', sum('likes')],
+    ['回覆', sum('replies')],
+    ['引用', sum('quotes')],
+    ['轉發', sum('reposts')],
+  ] as [string, number][]).map(([label, value]) => ({
+    label,
+    value,
+    pct: mixTotal ? Math.round((value / mixTotal) * 1000) / 10 : 0,
+  }));
+
+  const ranked = posts
+    .map((p) => p.total_engagement)
+    .sort((a, b) => b - a);
+
+  const questionRows = tiers.map((t) => ({
+    tier: t.tier,
+    pct: t.aggregate.question_rate_pct,
+    replies: t.aggregate.avg_replies,
+  }));
 
   return (
     <main className="wrap">
@@ -212,6 +241,32 @@ export default async function DashboardPage({
       <section className="stack">
         <div className="section-head"><h2>圖表</h2></div>
         <div className="chart-grid">
+          <div className="panel">
+            <h3>互動組成</h3>
+            <p className="muted" style={{ margin: '0 0 14px' }}>
+              全部 {mixTotal.toLocaleString()} 次互動的類型占比
+            </p>
+            <EngagementMix mix={mix} />
+            <p className="muted" style={{ margin: '14px 0 0' }}>
+              {mix[0].pct}% 是讚、僅 {mix[1].pct}% 是回覆 ——
+              多數互動停在「已讀點讚」，沒有進入對話。
+            </p>
+          </div>
+          <div className="panel">
+            <h3>提問率 vs 回覆數</h3>
+            <p className="muted" style={{ margin: '0 0 16px' }}>
+              全分析中最強的單一訊號
+            </p>
+            <QuestionRateBars rows={questionRows} />
+          </div>
+          <div className="panel" style={{ gridColumn: '1 / -1' }}>
+            <h3>每篇貼文的總互動（由高至低）</h3>
+            <p className="muted" style={{ margin: 0 }}>
+              最高 {ranked[0]} vs 最低 {ranked[ranked.length - 1]}，相差 {Math.round(ranked[0] / Math.max(1, ranked[ranked.length - 1]))} 倍；
+              深色為高於中位數（{ov.median_total_engagement}）的貼文
+            </p>
+            <PostRankChart values={ranked} median={ov.median_total_engagement} />
+          </div>
           <div className="panel">
             <h3>三組互動分層的平均互動</h3>
             <p className="muted" style={{ margin: 0 }}>依 likes + replies 三分位分組</p>

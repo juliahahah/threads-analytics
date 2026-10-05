@@ -205,3 +205,113 @@ export function ScatterLength({
     </div>
   );
 }
+
+/* ===========================================================================
+   Additional data-backed visuals.
+   Every element below is derived from real measured values — no gauges or
+   progress bars against invented targets.
+   =========================================================================== */
+
+/**
+ * Engagement mix — what the account's interactions are actually made of.
+ * A single stacked bar: the four interaction types really do sum to 100%.
+ */
+export function EngagementMix({
+  mix,
+}: {
+  mix: { label: string; value: number; pct: number }[];
+}) {
+  const pal = useThemePalette();
+  const colours = [pal.accent, pal.tiers[0], pal.tiers[1], pal.tiers[2]];
+
+  return (
+    <div className="mix">
+      <div className="mix-bar" role="img" aria-label="互動組成比例">
+        {mix.map((m, i) => (
+          <span
+            key={m.label}
+            className="mix-seg"
+            style={{ width: `${m.pct}%`, background: colours[i % colours.length] }}
+            title={`${m.label} ${m.pct}%`}
+          />
+        ))}
+      </div>
+      <ul className="mix-legend">
+        {mix.map((m, i) => (
+          <li key={m.label}>
+            <span className="dot" style={{ background: colours[i % colours.length] }} />
+            <span className="mix-k">{m.label}</span>
+            <span className="mix-v">{m.pct}%</span>
+            <span className="mix-n">{m.value.toLocaleString()}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/**
+ * Every post ranked by engagement. Makes the long tail impossible to miss:
+ * the top post is hundreds of times the median.
+ */
+export function PostRankChart({
+  values,
+  median,
+}: {
+  values: number[];
+  median: number;
+}) {
+  const pal = useThemePalette();
+  const axisProps = makeAxisProps(pal.axis);
+  const data = values.map((v, i) => ({ name: `#${i + 1}`, 總互動: v }));
+
+  return (
+    <div className="chart-box" style={{ height: 240 }}>
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart data={data} margin={{ top: 14, right: 12, left: 0, bottom: 4 }}>
+          <CartesianGrid stroke={pal.grid} vertical={false} />
+          <XAxis dataKey="name" {...axisProps} interval={0} fontSize={10} />
+          <YAxis {...axisProps} />
+          <Tooltip content={<TooltipBox />} cursor={{ fill: 'rgba(124,124,220,.08)' }} />
+          <Bar dataKey="總互動" radius={[3, 3, 0, 0]} isAnimationActive={false}>
+            {data.map((d, i) => (
+              <Cell
+                key={i}
+                fill={d.總互動 >= median ? pal.accent : pal.grid}
+              />
+            ))}
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  );
+}
+
+/**
+ * Question rate across the three tiers — the single strongest finding in the
+ * whole analysis, so it gets its own comparison bar.
+ */
+export function QuestionRateBars({
+  rows,
+}: {
+  rows: { tier: string; pct: number; replies: number }[];
+}) {
+  const pal = useThemePalette();
+  return (
+    <ul className="qr-list">
+      {rows.map((r, i) => (
+        <li key={r.tier}>
+          <span className="qr-k">{r.tier}</span>
+          <span className="qr-track">
+            <span
+              className="qr-fill"
+              style={{ width: `${r.pct}%`, background: pal.tiers[i % pal.tiers.length] }}
+            />
+          </span>
+          <span className="qr-v">{r.pct}%</span>
+          <span className="qr-n">平均 {r.replies} 回覆</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
