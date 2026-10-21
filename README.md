@@ -6,6 +6,21 @@
 分析 Threads 帳號 **@emoless_com** 的發文表現：蒐集貼文 → 清理 → 特徵萃取 → 互動分析 → 報告。
 含 Next.js + Supabase 的登入制 dashboard，可部署至 Vercel。
 
+### 不想安裝？先看這兩份
+
+| 想看什麼 | 去哪裡 |
+| --- | --- |
+| **網站長什麼樣子**（11 張截圖逐頁說明，免安裝免登入） | **[docs/WALKTHROUGH.md](docs/WALKTHROUGH.md)** |
+| **數據分析題（補充）**：按讚／回覆分三組 → NLP 分析 → 成敗原因 | **[分層 NLP 分析](docs/WALKTHROUGH.md#8-三組互動分層的-nlp-分析第二題)**·[程式碼](scripts/analyze.py#L309)·[報告](reports/report.md#8-三組互動分層的-nlp-內文分析) |
+
+數據分析題的結論摘要（完整推導見上方連結）：
+
+| 特徵 | 高互動組 | 低互動組 | 差距 |
+| --- | --- | --- | --- |
+| 提問率 | **40%** | **0%** | 提問是最強的分水嶺 |
+| 平均 reply | 40.4 | 0.67 | 約 60 倍 |
+| 第二人稱「你/妳」 | 2.2 次 | 1 次 | 對話感的來源 |
+
 ---
 
 ## 目錄
@@ -116,14 +131,37 @@ npm run data:build
 | `python scripts/analyze.py` | 計算所有指標與分層 NLP | `data/analysis.json` |
 | `python scripts/report.py` | 產生 Markdown 報告與 SVG 圖表 | `reports/report.md` + 4 張圖 |
 
-### 2. 啟動 Web dashboard
+### 2. 輸出簡報與 PDF（選用）
+
+```bash
+pip install python-pptx reportlab
+npm run report:export     # 完整書面報告
+npm run report:pitch      # 口頭報告用簡報
+```
+
+| 檔案 | 頁數 | 用途 |
+| --- | --- | --- |
+| [`reports/pitch.pptx`](reports/pitch.pptx) | 9 | **口頭報告用**。5 分鐘，一頁一個論點，大字少字。 |
+| [`reports/pitch.pdf`](reports/pitch.pdf) | 9 | 同上的 PDF 版，不需 PowerPoint 即可開啟。 |
+| [`reports/report.pptx`](reports/report.pptx) | 13 | 完整簡報，含 4 張可編輯的原生 PowerPoint 圖表。 |
+| [`reports/report.pdf`](reports/report.pdf) | 7 | A4 書面報告，適合列印或寄出。 |
+
+四者皆從 `data/analysis.json` 產生，與 Markdown 報告同源。
+
+> `pitch.pdf` 由 LibreOffice 自 `pitch.pptx` 轉出，`report:pitch` 會自動執行。
+> 若機器上沒有 LibreOffice，該步驟會跳過並提示，PPTX 仍正常產生。
+
+> 這是唯一需要 `pip install` 的步驟；核心資料管線與測試仍為零安裝。
+> PDF 以 Windows 內建的微軟正黑體嵌入中文，在其他平台會自動退回可用字型。
+
+### 3. 啟動 Web dashboard
 
 ```bash
 npm run dev      # 開發模式
 npm run build && npm start   # 正式模式
 ```
 
-### 3. 執行測試
+### 4. 執行測試
 
 ```bash
 python -m unittest discover -s tests -v
@@ -239,11 +277,16 @@ threads-analytics/
 │   └── analysis.json                 # 完整分析結果
 ├── reports/
 │   ├── report.md                     # Markdown 分析報告
+│   ├── pitch.pptx / pitch.pdf        # 9 頁口頭報告簡報（選用）
+│   ├── report.pptx                   # 13 頁完整簡報（選用）
+│   ├── report.pdf                    # 7 頁 A4 報告（選用）
 │   └── chart_*.svg                   # 4 張圖表
 ├── scripts/
 │   ├── build_dataset.py              # 清理 + 特徵萃取 + 合成補充
 │   ├── analyze.py                    # 指標計算 + 分層 NLP
-│   └── report.py                     # 報告與圖表產生
+│   ├── report.py                     # 報告與圖表產生
+│   ├── export_deck.py                # 完整報告 PPTX / PDF 輸出
+│   └── export_pitch.py               # 口頭報告簡報輸出
 ├── src/
 │   ├── app/
 │   │   ├── page.tsx                  # 首頁
