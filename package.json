@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "data:build": "python scripts/build_dataset.py && python scripts/analyze.py && python scripts/report.py",
+    "data:build": "node scripts/run_python.mjs scripts/build_dataset.py scripts/analyze.py scripts/report.py",
+    "report:export": "node scripts/run_python.mjs scripts/export_deck.py",
+    "report:pitch": "node scripts/run_python.mjs scripts/export_pitch.py",
     "test": "node --test tests/"
   },
   "dependencies": {
