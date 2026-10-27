@@ -10,3 +10,9 @@ __pycache__/
 
 # Vercel CLI 本機連結設定
 .vercel
+
+.vercel
+.env*
+
+# 內部設定筆記，不進 repo
+docs/SUPABASE_REBUILD.md

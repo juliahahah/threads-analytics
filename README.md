@@ -59,20 +59,56 @@ npm run dev                 # 開啟 http://localhost:3000
 
 ## 資料來源（合法性說明）
 
-### 為什麼沒有直接爬 Threads
+### Playwright 爬蟲：實際可取得什麼
 
-本專案**沒有**爬取 Threads，這是刻意的決定。實際驗證結果：
+本專案提供一支**可實際執行**的 Playwright 爬蟲
+（[`scripts/scrape_threads.mjs`](scripts/scrape_threads.mjs)）：
 
 ```bash
-curl -A "<一般瀏覽器 UA>" https://www.threads.com/@emoless_com
-# HTTP 200，但回傳 275 KB 的 JS 殼：<title>Threads</title>
-# 內文 like_count 出現次數：0
-# 單篇貼文頁 /post/<id> 同樣只回傳空殼
+npm run scrape                      # 爬取預設帳號 @emoless_com
+npm run scrape -- @someone --headful   # 顯示瀏覽器，觀察實際行為
 ```
 
-Threads 的貼文內容與互動數字由前端在**登入後**才渲染，未登入的 HTML 完全不含
-`like_count` 等欄位。要取得資料只能竊取 session cookie 或繞過登入 —— 這正是考題
-「限制提醒」明文禁止的行為，因此不予採用。
+它會開啟真實的 Chromium、等待前端渲染、捲動觸發無限載入，
+並攔截 Threads 的 GraphQL 回應來取得互動數字。
+
+**為什麼不是解析 DOM**：Threads 對數值為 0 的指標**直接不渲染該行**，
+所以 DOM 上看到的 `15 / 1 / 1` 無法判斷哪個是 like、哪個是 reply。
+GraphQL payload 有明確鍵名（`like_count`、`direct_reply_count`…），不存在這個歧義。
+
+#### 實測結果（2026-10-27）
+
+| 項目 | 結果 |
+| --- | --- |
+| HTTP 狀態 | 200 |
+| 取得貼文 | **14 篇**（含文字、likes、replies、reposts、quotes、時間、URL） |
+| 資料來源 | GraphQL 回應 |
+| 捲動後新增 | 0（連續 3 輪無新增後停止） |
+| 登入牆 | 存在 |
+| 曝光數 | **不可得** |
+
+完整取證紀錄見 [`data/scrape_result.json`](data/scrape_result.json)。
+
+#### 為什麼最後不用爬蟲的資料做分析
+
+爬蟲確實能取得資料，但**只有 14 篇、時間跨度不到 2 天**，未達考題要求的 30 篇。
+未登入狀態下 Threads 只提供最近一批貼文，再往下捲不會載入更多 ——
+要突破這個限制只能登入，而考題「限制提醒」明文禁止繞過登入。
+
+因此本專案的分析採用考題提供的 Google Sheet（16 則），
+爬蟲則作為「資料取得流程」的實作與取證保留在 repo 中。
+兩者的欄位結構一致，若日後取得合法的完整資料源，可直接替換資料來源。
+
+#### 關於「曝光數」
+
+新版考題要求的欄位中含「曝光數」，但此欄位**在任何公開來源皆不存在**：
+
+- Threads 公開頁面與 GraphQL 回應皆不含此欄位（已實測確認）
+- 曝光／觸及數僅**帳號擁有者**在 Threads 後台 insights 可見
+- 考題提供的 Google Sheet 也沒有這個欄位
+
+因此本專案的資料集不含曝光數。若需要此指標，需由帳號擁有者透過
+官方 Insights API 授權取得。
 
 ### 實際採用的資料來源
 
