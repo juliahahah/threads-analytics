@@ -74,8 +74,8 @@ async function withRetry(label, fn, attempts = 3) {
  * Threads 把資料放在內嵌的 JSON payload 裡（而非 DOM 屬性），
  * 所以這裡同時嘗試兩條路徑：DOM 擷取與 script 標籤中的 JSON。
  */
-async function extractPosts(page) {
-  return page.evaluate((keys) => {
+async function extractPosts(page, acct) {
+  return page.evaluate(({ keys, acct }) => {
     const out = { fromDom: [], fromJson: [], evidence: {} };
 
     // --- 路徑 A：DOM。未登入時 Threads 不渲染貼文，這裡通常為空。
@@ -100,33 +100,50 @@ async function extractPosts(page) {
       keys.map((k) => [k, (html.match(new RegExp(k, 'g')) || []).length]),
     );
 
+    // Threads 會把貼文資料放在 <script type="application/json"> 區塊中。
+    // 結構會隨版本變動，所以不用正規表示式比對形狀，改以遞迴走訪找出
+    // 所有帶 like_count 的節點 —— 這對兩種 payload 版本都成立。
+    const seen = new Map();
+    const walk = (node) => {
+      if (!node || typeof node !== 'object') return;
+      if (Array.isArray(node)) { node.forEach(walk); return; }
+      if (typeof node.like_count === 'number') {
+        const info = node.text_post_app_info ?? {};
+        const id = node.code ?? node.pk ?? node.id ?? null;
+        if (id) {
+          seen.set(String(id), {
+            post_id: String(id),
+            url: node.code ? `https://www.threads.com/@${acct}/post/${node.code}` : null,
+            text: node.caption?.text ?? null,
+            likes: node.like_count,
+            replies: info.direct_reply_count ?? 0,
+            reposts: info.repost_count ?? 0,
+            quotes: info.quote_count ?? 0,
+            taken_at: node.taken_at ? new Date(node.taken_at * 1000).toISOString() : null,
+          });
+        }
+      }
+      for (const v of Object.values(node)) walk(v);
+    };
+
     for (const s of scripts) {
       const raw = s.textContent || '';
       if (!raw.includes('like_count')) continue;
       try {
-        const found = raw.match(/\{"pk":.*?"like_count":\d+.*?\}/g) || [];
-        for (const chunk of found.slice(0, 100)) {
-          const o = JSON.parse(chunk);
-          out.fromJson.push({
-            post_id: o.pk ?? o.id ?? null,
-            text: o.caption?.text ?? null,
-            likes: o.like_count ?? null,
-            replies: o.text_post_app_info?.direct_reply_count ?? null,
-            reposts: o.text_post_app_info?.repost_count ?? null,
-            quotes: o.text_post_app_info?.quote_count ?? null,
-            taken_at: o.taken_at ?? null,
-          });
-        }
+        walk(JSON.parse(raw));
       } catch {
-        // payload 結構會變動，解析失敗不應中斷取證流程
+        // 非 JSON 的 script（例如含 JSON 的 JS 程式碼）：抽出最外層物件再試
+        const m = raw.match(/\{[\s\S]*\}/);
+        if (m) { try { walk(JSON.parse(m[0])); } catch { /* 放棄此區塊 */ } }
       }
     }
+    out.fromJson = [...seen.values()];
 
     out.evidence.title = document.title;
     out.evidence.bodyTextLength = (document.body.innerText || '').length;
     out.evidence.hasLoginWall = /log in|登入|sign up|註冊/i.test(document.body.innerText || '');
     return out;
-  }, ENGAGEMENT_KEYS);
+  }, { keys: ENGAGEMENT_KEYS, acct });
 }
 
 // ---------------------------------------------------------------- 主流程
@@ -250,7 +267,7 @@ try {
     }
   }
 
-  const extracted = await extractPosts(page);
+  const extracted = await extractPosts(page, account);
   result.evidence = { ...result.evidence, ...extracted.evidence };
   result.api_responses = apiResponses;
 
